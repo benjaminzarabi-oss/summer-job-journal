@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Benjamin&rsquo;s Field Journal</title>
+<meta name="description" content="Quotes, questions, and notes worth keeping &mdash; a summer-job field journal.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#d3c5a4">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f1e19">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Field Journal">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#128451;</text></svg>">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+<style>
+/* ============ tokens ============ */
+:root{
+  --desk:#d3c5a4;
+  --lamp:rgba(255,255,255,.34);
+  --card:#fdfcf6;
+  --ink:#2a271f;
+  --muted:#6e6353;
+  --rule-red:#d95f4c;
+  --red-ink:#b64834;
+  --ruling:#ccd9e6;
+  --hl-q-bg:#ffe36e;  --hl-q-ink:#8a6a00;
+  --hl-u-bg:#a5d5ff;  --hl-u-ink:#1f6699;
+  --hl-n-bg:#ffa9c4;  --hl-n-ink:#b0335f;
+  --tape:rgba(246,233,189,.95);
+  --shadow-s:0 1px 2px rgba(60,45,20,.14),0 5px 14px rgba(60,45,20,.08);
+  --shadow-l:0 3px 6px rgba(60,45,20,.15),0 12px 26px rgba(60,45,20,.12);
+  --tw:"American Typewriter","Courier Prime","Courier New",Courier,monospace;
+  --body:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --marker:"Marker Felt","Bradley Hand","Segoe Print","Comic Sans MS",cursive;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --desk:#1f1e19;
+    --lamp:rgba(255,236,190,.06);
+    --card:#2b2a23;
+    --ink:#ebe5d4;
+    --muted:#a59d8a;
+    --rule-red:#e1705a;
+    --red-ink:#e8836f;
+    --ruling:rgba(160,180,205,.26);
+    --hl-q-bg:color-mix(in srgb,#e8c73f 32%,#2b2a23);  --hl-q-ink:#e6c64a;
+    --hl-u-bg:color-mix(in srgb,#7db8e8 30%,#2b2a23);  --hl-u-ink:#8ec2ec;
+    --hl-n-bg:color-mix(in srgb,#e884a8 30%,#2b2a23);  --hl-n-ink:#ee8fb0;
+    --tape:rgba(74,68,51,.97);
+    --shadow-s:0 1px 2px rgba(0,0,0,.4),0 5px 14px rgba(0,0,0,.28);
+    --shadow-l:0 3px 6px rgba(0,0,0,.45),0 12px 26px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="light"]{
+  --desk:#d3c5a4;
+  --lamp:rgba(255,255,255,.34);
+  --card:#fdfcf6;
+  --ink:#2a271f;
+  --muted:#6e6353;
+  --rule-red:#d95f4c;
+  --red-ink:#b64834;
+  --ruling:#ccd9e6;
+  --hl-q-bg:#ffe36e;  --hl-q-ink:#8a6a00;
+  --hl-u-bg:#a5d5ff;  --hl-u-ink:#1f6699;
+  --hl-n-bg:#ffa9c4;  --hl-n-ink:#b0335f;
+  --tape:rgba(246,233,189,.95);
+  --shadow-s:0 1px 2px rgba(60,45,20,.14),0 5px 14px rgba(60,45,20,.08);
+  --shadow-l:0 3px 6px rgba(60,45,20,.15),0 12px 26px rgba(60,45,20,.12);
+}
+:root[data-theme="dark"]{
+  --desk:#1f1e19;
+  --lamp:rgba(255,236,190,.06);
+  --card:#2b2a23;
+  --ink:#ebe5d4;
+  --muted:#a59d8a;
+  --rule-red:#e1705a;
+  --red-ink:#e8836f;
+  --ruling:rgba(160,180,205,.26);
+  --hl-q-bg:color-mix(in srgb,#e8c73f 32%,#2b2a23);  --hl-q-ink:#e6c64a;
+  --hl-u-bg:color-mix(in srgb,#7db8e8 30%,#2b2a23);  --hl-u-ink:#8ec2ec;
+  --hl-n-bg:color-mix(in srgb,#e884a8 30%,#2b2a23);  --hl-n-ink:#ee8fb0;
+  --tape:rgba(74,68,51,.97);
+  --shadow-s:0 1px 2px rgba(0,0,0,.4),0 5px 14px rgba(0,0,0,.28);
+  --shadow-l:0 3px 6px rgba(0,0,0,.45),0 12px 26px rgba(0,0,0,.35);
+}
+
+/* ============ base ============ */
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{
+  margin:0;
+  font-family:var(--body);
+  color:var(--ink);
+  background:radial-gradient(1100px 520px at 50% -140px,var(--lamp),transparent 70%),var(--desk);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+button{font:inherit;color:inherit}
+::selection{background:#ffe36e;color:#241f10}
+mark{background:var(--hl-q-bg);color:inherit;padding:0 1px;border-radius:2px}
+:focus-visible{outline:2px dashed var(--red-ink);outline-offset:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:30px 22px 70px}
+
+/* ============ header ============ */
+header{margin:6px 0 26px}
+.tape{
+  display:inline-block;
+  background:var(--tape);
+  padding:11px 28px 12px;
+  transform:rotate(-1.1deg);
+  box-shadow:0 3px 10px rgba(0,0,0,.16);
+  clip-path:polygon(1.5% 0,98% 3%,100% 12%,99% 88%,100% 97%,97.5% 100%,2% 97%,0 90%,.5% 10%);
+}
+h1{
+  margin:0;
+  font-family:var(--tw);
+  font-weight:700;
+  font-size:clamp(20px,4.2vw,30px);
+  line-height:1.15;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.sub{
+  margin:13px 2px 0;
+  font-family:var(--tw);
+  font-size:12px;
+  letter-spacing:.09em;
+  color:var(--muted);
+}
+
+/* ============ composer ============ */
+.composer{
+  position:relative;
+  background:var(--card);
+  border-radius:6px;
+  box-shadow:var(--shadow-s);
+  padding:10px 18px 14px 48px;
+}
+.composer::before{ /* red margin line, like a real card */
+  content:"";
+  position:absolute;left:34px;top:0;bottom:0;width:1px;
+  background:color-mix(in srgb,var(--rule-red) 45%,transparent);
+}
+.seg{display:flex;gap:16px;padding:8px 2px 10px;flex-wrap:wrap}
+.segbtn{
+  background:none;border:0;cursor:pointer;
+  font-family:var(--tw);font-weight:700;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);
+  position:relative;isolation:isolate;
+  padding:5px 7px;border-radius:3px;
+}
+.segbtn::before{
+  content:"";
+  position:absolute;inset:3px -2px 3px -4px;
+  transform:skewX(-9deg) rotate(-1.2deg);
+  border-radius:2px;z-index:-1;
+  opacity:0;transition:opacity .15s;
+}
+.segbtn[data-type="quote"]::before{background:var(--hl-q-bg)}
+.segbtn[data-type="question"]::before{background:var(--hl-u-bg)}
+.segbtn[data-type="note"]::before{background:var(--hl-n-bg)}
+.segbtn:hover{color:var(--ink)}
+.segbtn:hover::before{opacity:.35}
+.segbtn.on{color:var(--ink)}
+.segbtn.on::before{opacity:1}
+.composer textarea{
+  display:block;width:100%;
+  border:0;outline:none;resize:none;
+  background:transparent;
+  background-image:repeating-linear-gradient(to bottom,transparent,transparent 25px,var(--ruling) 25px,var(--ruling) 26px);
+  background-attachment:local;
+  color:var(--ink);
+  font-family:var(--body);font-size:16px;line-height:26px;
+  min-height:106px;padding:0 2px 2px;
+}
+.composer textarea::placeholder,.composer input::placeholder{color:color-mix(in srgb,var(--muted) 75%,transparent)}
+.crow{display:flex;gap:12px;align-items:flex-end;margin-top:10px}
+#meta{
+  flex:1;min-width:0;
+  border:0;outline:none;background:transparent;
+  border-bottom:1px dashed color-mix(in srgb,var(--muted) 65%,transparent);
+  font-family:var(--marker);font-size:16px;
+  color:var(--ink);padding:4px 2px;
+}
+#meta:focus{border-bottom-color:var(--rule-red)}
+.btn{
+  cursor:pointer;
+  font-family:var(--tw);font-weight:700;font-size:11px;
+  letter-spacing:.15em;text-transform:uppercase;
+  border:1.5px solid color-mix(in srgb,var(--ink) 60%,transparent);
+  background:transparent;color:var(--ink);
+  padding:9px 14px;border-radius:3px;
+  transition:transform .12s,box-shadow .12s,background .12s,color .12s;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.btn.primary{background:var(--ink);color:var(--card);border-color:var(--ink)}
+#pull{border-color:var(--rule-red);color:var(--red-ink)}
+#pull:hover{background:var(--rule-red);color:#fff}
+.hint{
+  margin:10px 0 0;text-align:right;
+  font-family:var(--tw);font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:color-mix(in srgb,var(--muted) 80%,transparent);
+}
+
+/* ============ tabs + tools bar ============ */
+.bar{
+  position:sticky;top:0;z-index:20;
+  background:var(--desk);
+  display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;
+  margin-top:28px;padding:10px 0 0;
+}
+.tabs{
+  flex:1;display:flex;gap:6px;align-items:flex-end;
+  border-bottom:2px solid color-mix(in srgb,var(--ink) 35%,transparent);
+  overflow-x:auto;scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  cursor:pointer;white-space:nowrap;
+  font-family:var(--tw);font-weight:700;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);
+  background:color-mix(in srgb,var(--card) 42%,var(--desk));
+  border:1px solid color-mix(in srgb,var(--ink) 20%,transparent);
+  border-bottom:none;
+  border-radius:7px 7px 0 0;
+  padding:8px 13px 7px;
+}
+.tab span{opacity:.65;margin-left:5px}
+.tab.on{
+  background:var(--card);color:var(--ink);
+  border-color:color-mix(in srgb,var(--ink) 30%,transparent);
+  transform:translateY(1px);
+}
+.tab.on[data-f="all"]{box-shadow:inset 0 3px 0 color-mix(in srgb,var(--ink) 70%,transparent)}
+.tab.on[data-f="quote"]{box-shadow:inset 0 3px 0 var(--hl-q-ink)}
+.tab.on[data-f="question"]{box-shadow:inset 0 3px 0 var(--hl-u-ink)}
+.tab.on[data-f="note"]{box-shadow:inset 0 3px 0 var(--hl-n-ink)}
+.tools{display:flex;gap:12px;align-items:center;padding-bottom:6px}
+#search{
+  width:200px;
+  border:0;outline:none;background:transparent;
+  border-bottom:1px dotted var(--muted);
+  font-family:var(--tw);font-size:13px;letter-spacing:.05em;
+  color:var(--ink);padding:7px 2px;
+}
+#search:focus{border-bottom-color:var(--rule-red)}
+
+/* ============ cards ============ */
+#grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:20px 16px;
+  margin-top:18px;
+  align-items:start;
+}
+.card{
+  position:relative;
+  background:var(--card);
+  border-radius:6px;
+  box-shadow:var(--shadow-s);
+  display:flex;flex-direction:column;
+  transition:transform .16s,box-shadow .16s;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-l)}
+.card.pinned{transform:rotate(-.5deg)}
+.card.pinned:hover{transform:rotate(-.5deg) translateY(-2px)}
+.card.pinned::after{ /* masking tape holding it up */
+  content:"";
+  position:absolute;top:-8px;left:50%;width:74px;height:18px;
+  transform:translateX(-50%) rotate(-2deg);
+  background:var(--tape);
+  box-shadow:0 1px 4px rgba(0,0,0,.16);
+  clip-path:polygon(2% 0,98% 4%,100% 20%,99% 85%,97% 100%,3% 96%,0 80%,1% 15%);
+}
+.card.new{animation:drop .32s cubic-bezier(.2,.8,.3,1.15)}
+@keyframes drop{from{opacity:0;transform:translateY(-12px) rotate(-1.5deg)}to{opacity:1;transform:none}}
+.head{
+  display:flex;align-items:baseline;gap:10px;
+  padding:10px 14px 8px;
+  border-bottom:2px solid color-mix(in srgb,var(--rule-red) 55%,transparent);
+}
+.type-tag{
+  display:inline-block;
+  position:relative;isolation:isolate;
+  font-family:var(--tw);font-weight:700;font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  padding:1px 3px;
+}
+.type-tag::before{
+  content:"";
+  position:absolute;inset:-1px -4px -2px -5px;
+  transform:skewX(-9deg) rotate(-1deg);
+  border-radius:2px;z-index:-1;
+}
+.type-tag[data-t="quote"]::before{background:var(--hl-q-bg)}
+.type-tag[data-t="question"]::before{background:var(--hl-u-bg)}
+.type-tag[data-t="note"]::before{background:var(--hl-n-bg)}
+.head time{
+  margin-left:auto;
+  font-family:var(--tw);font-size:10px;letter-spacing:.1em;
+  color:var(--muted);
+}
+.bod{padding:11px 14px 4px}
+.etext{margin:0;font-size:15px;line-height:1.55;white-space:pre-wrap;overflow-wrap:break-word}
+.qtext{font-size:16.5px;font-style:italic}
+.qmark{
+  float:left;
+  font-family:var(--tw);font-size:44px;line-height:.7;
+  color:var(--hl-q-ink);
+  margin:5px 8px 0 0;user-select:none;
+}
+.mline{
+  margin:9px 0 0;
+  font-family:var(--marker);font-size:14.5px;
+  color:var(--muted);
+  overflow-wrap:break-word;
+}
+.ansbox{
+  margin-top:10px;padding-top:8px;
+  border-top:1px dashed color-mix(in srgb,var(--ink) 30%,transparent);
+}
+.alabel{
+  font-family:var(--tw);font-weight:700;font-size:9.5px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--hl-u-ink);
+}
+.ansline{margin:4px 0 0;font-family:var(--marker);font-size:15px;overflow-wrap:break-word}
+.ansform{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ansform input{
+  flex:1;min-width:120px;
+  border:0;outline:none;background:transparent;
+  border-bottom:1px dashed var(--muted);
+  font-family:var(--marker);font-size:15px;
+  color:var(--ink);padding:4px 2px;
+}
+.ansform input:focus{border-bottom-color:var(--rule-red)}
+.acts{
+  display:flex;gap:2px;justify-content:flex-end;flex-wrap:wrap;
+  margin-top:auto;padding:4px 8px 8px;
+}
+.act{
+  background:none;border:0;cursor:pointer;
+  font-family:var(--tw);font-weight:700;font-size:10px;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);
+  padding:5px 7px;border-radius:3px;
+}
+.act:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.act.danger:hover{color:var(--red-ink);background:color-mix(in srgb,var(--rule-red) 14%,transparent)}
+@media (hover:hover){
+  .card .acts{opacity:.45;transition:opacity .15s}
+  .card:hover .acts,.card:focus-within .acts{opacity:1}
+}
+/* in-card edit form */
+.edit textarea{
+  display:block;width:100%;
+  border:1px dashed color-mix(in srgb,var(--ink) 35%,transparent);
+  border-radius:3px;outline:none;resize:vertical;
+  background:transparent;color:var(--ink);
+  font-family:var(--body);font-size:15px;line-height:1.5;
+  min-height:90px;padding:8px;
+}
+.edit input{
+  display:block;width:100%;margin-top:8px;
+  border:0;outline:none;background:transparent;
+  border-bottom:1px dashed var(--muted);
+  font-family:var(--marker);font-size:15px;
+  color:var(--ink);padding:4px 2px;
+}
+.edit input:focus,.edit textarea:focus{border-color:var(--rule-red)}
+.erow{display:flex;gap:6px;justify-content:flex-end;margin-top:10px}
+
+/* ============ empty state ============ */
+#empty{
+  margin-top:18px;
+  border:2px dashed color-mix(in srgb,var(--ink) 28%,transparent);
+  border-radius:6px;
+  padding:40px 24px;text-align:center;
+}
+.e1{margin:0;font-family:var(--marker);font-size:18px;color:var(--ink)}
+.e2{
+  margin:10px 0 0;
+  font-family:var(--tw);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);
+}
+
+/* ============ footer ============ */
+footer{
+  display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+  margin-top:36px;
+  font-family:var(--tw);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);
+}
+footer .sp{flex:1}
+.warn{color:var(--red-ink)}
+.linkbtn{
+  background:none;border:0;cursor:pointer;padding:4px 2px;
+  font-family:var(--tw);font-weight:700;font-size:10.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:underline dotted;
+  text-underline-offset:3px;
+}
+.linkbtn:hover{color:var(--ink)}
+
+/* ============ toast ============ */
+#toast{
+  position:fixed;left:50%;bottom:22px;z-index:60;
+  transform:translateX(-50%) rotate(-.8deg);
+  display:flex;gap:14px;align-items:center;
+  background:var(--tape);color:var(--ink);
+  padding:11px 18px;border-radius:2px;
+  box-shadow:0 4px 14px rgba(0,0,0,.28);
+  font-family:var(--tw);font-weight:700;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;
+  max-width:92vw;
+}
+.tbtn{
+  background:none;border:0;cursor:pointer;padding:0;
+  font-family:var(--tw);font-weight:700;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:var(--red-ink);
+  text-decoration:underline;text-underline-offset:3px;
+}
+
+/* ============ pull-a-card modal ============ */
+#back{
+  position:fixed;inset:0;z-index:50;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(20,18,12,.55);
+  padding:18px;
+}
+.pullcard{
+  width:min(560px,94vw);max-height:86vh;overflow-y:auto;
+  background:var(--card);
+  border-radius:8px;
+  box-shadow:0 18px 50px rgba(0,0,0,.4);
+  padding-bottom:18px;
+  animation:pullup .34s cubic-bezier(.2,.9,.25,1.15);
+}
+@keyframes pullup{from{opacity:0;transform:translateY(26px) rotate(-2.5deg)}to{opacity:1;transform:none}}
+.phead{
+  display:flex;align-items:baseline;gap:12px;
+  padding:14px 20px 10px;
+  border-bottom:2px solid color-mix(in srgb,var(--rule-red) 55%,transparent);
+}
+.plabel{
+  font-family:var(--tw);font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);
+}
+.phead time{
+  margin-left:auto;
+  font-family:var(--tw);font-size:10px;letter-spacing:.1em;color:var(--muted);
+}
+.pbody{
+  padding:0 24px 12px;
+  background-image:repeating-linear-gradient(to bottom,transparent,transparent 25px,var(--ruling) 25px,var(--ruling) 26px);
+}
+.ptext{margin:0;font-size:19px;line-height:26px;white-space:pre-wrap;overflow-wrap:break-word}
+.pq{font-style:italic}
+.qmark.big{font-size:54px;margin-top:8px}
+.pbody .mline{line-height:26px;margin:0}
+.pbody .ansline{line-height:26px}
+.reveal{
+  margin:14px 0 6px;cursor:pointer;
+  font-family:var(--tw);font-weight:700;font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;
+  border:1.5px dashed var(--hl-u-ink);color:var(--hl-u-ink);
+  background:var(--card);
+  padding:8px 12px;border-radius:3px;
+}
+.reveal:hover{background:var(--hl-u-bg);color:var(--ink)}
+.pacts{display:flex;gap:10px;justify-content:flex-end;padding:16px 20px 0}
+
+/* ============ motion + mobile ============ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media (max-width:640px){
+  .wrap{padding:18px 12px 60px}
+  .composer{padding:8px 14px 12px 40px}
+  .composer::before{left:28px}
+  .seg{gap:8px}
+  .tools{width:100%;padding-bottom:8px}
+  #search{flex:1;width:auto;font-size:16px}
+  #grid{grid-template-columns:1fr}
+  .card .acts{opacity:1}
+  .tab{padding:7px 10px 6px;font-size:10px}
+  .pbody{padding:0 18px 10px}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="tape"><h1>Benjamin&rsquo;s Field Journal</h1></div>
+    <p class="sub">summer job — quotes, questions &amp; notes worth keeping &middot; <span id="today"></span></p>
+  </header>
+
+  <section class="composer" aria-label="File a new card">
+    <div class="seg" role="group" aria-label="Card type">
+      <button class="segbtn on" data-type="quote">Quote</button>
+      <button class="segbtn" data-type="question">Question</button>
+      <button class="segbtn" data-type="note">Note</button>
+    </div>
+    <textarea id="text" rows="4" placeholder="Their exact words&hellip;"></textarea>
+    <div class="crow">
+      <input id="meta" placeholder="&mdash; who said it?" autocomplete="off">
+      <button id="file" class="btn primary">File it</button>
+    </div>
+    <p class="hint">ctrl/cmd + enter files it &middot; press / to search the box</p>
+  </section>
+
+  <nav class="bar">
+    <div class="tabs" role="tablist" aria-label="Sections">
+      <button class="tab on" data-f="all">All <span id="c-all"></span></button>
+      <button class="tab" data-f="quote">Quotes <span id="c-quote"></span></button>
+      <button class="tab" data-f="question">Questions <span id="c-question"></span></button>
+      <button class="tab" data-f="note">Notes <span id="c-note"></span></button>
+    </div>
+    <div class="tools">
+      <input id="search" placeholder="search the box&hellip;" autocomplete="off" aria-label="Search">
+      <button id="pull" class="btn">Pull a card</button>
+    </div>
+  </nav>
+
+  <main id="grid"></main>
+  <div id="empty" hidden></div>
+
+  <footer>
+    <span id="stats"></span><span>&middot;</span><span id="savestate"></span>
+    <span class="sp"></span>
+    <button id="exp" class="linkbtn">Export</button>
+    <button id="impbtn" class="linkbtn">Import</button>
+    <input id="impfile" type="file" accept="application/json,.json" hidden>
+  </footer>
+</div>
+
+<div id="toast" hidden></div>
+
+<div id="back" hidden>
+  <div class="pullcard" role="dialog" aria-modal="true" aria-label="Pulled card">
+    <div class="phead">
+      <span class="plabel">pulled from the box</span>
+      <span class="type-tag" id="ptag"></span>
+      <time id="pdate"></time>
+    </div>
+    <div id="pbody" class="pbody"></div>
+    <div class="pacts">
+      <button id="again" class="btn">Pull another</button>
+      <button id="pclose" class="btn primary">Back to the box</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $ = function(s){ return document.querySelector(s); };
+
+var KEY = 'summer-job-journal-v1';
+
+var TYPES = {
+  quote:    { ph:'Their exact words…',              mph:'— who said it?',        plural:'quotes' },
+  question: { ph:'What do you need to find out?',        mph:'who to ask (optional)',      plural:'questions' },
+  note:     { ph:'What should future-you remember?',     mph:'re: what? (optional)',       plural:'notes' }
+};
+
+var SEED = [
+  {
+    id:'seed-welcome', type:'note', pinned:true,
+    text:'Welcome to your card box. QUOTES = things people actually said. QUESTIONS = stuff to chase down — file the answer when you get it. NOTES = anything future-you will need. Cards save on this device; hit EXPORT once a week for a backup, and PULL A CARD to quiz yourself on the way home. Toss this card when you’ve got it.',
+    meta:'how this box works'
+  },
+  {
+    id:'seed-quote', type:'quote', pinned:false,
+    text:'The palest ink beats the sharpest memory.',
+    meta:'old proverb, basically the whole idea here'
+  },
+  {
+    id:'seed-question', type:'question', pinned:false,
+    text:'What did I learn today that I didn’t know this morning?',
+    meta:'ask yourself after every shift'
+  }
+];
+
+var data = { entries:[], tombstones:[] };
+var storageOK = true;
+var curType = 'quote', filter = 'all', q = '';
+var editingId = null, answeringId = null, newId = null;
+var lastPull = null, lastDeleted = null, toastTimer = null;
+
+var grid, empty, back, toastEl;
+
+/* ---------- storage ---------- */
+function load(){
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(raw){
+      var j = JSON.parse(raw);
+      if(j && typeof j === 'object'){
+        data.entries = Array.isArray(j.entries) ? j.entries : [];
+        data.tombstones = Array.isArray(j.tombstones) ? j.tombstones : [];
+      }
+    }
+  }catch(err){ storageOK = false; }
+  var changed = false;
+  SEED.forEach(function(s){
+    var buried = data.tombstones.indexOf(s.id) !== -1;
+    var exists = data.entries.some(function(e){ return e.id === s.id; });
+    if(!buried && !exists){
+      data.entries.push({
+        id:s.id, type:s.type, text:s.text, meta:s.meta||'',
+        answer:'', answered:false, pinned:!!s.pinned, created:Date.now()
+      });
+      changed = true;
+    }
+  });
+  if(changed) save();
+}
+function save(){
+  if(storageOK){
+    try{ localStorage.setItem(KEY, JSON.stringify(data)); }
+    catch(err){ storageOK = false; }
+  }
+  updateSaveState();
+}
+function updateSaveState(){
+  var el = $('#savestate');
+  if(storageOK){
+    el.textContent = 'auto-saves on this device';
+    el.classList.remove('warn');
+  }else{
+    el.textContent = 'can’t auto-save here — export before you leave';
+    el.classList.add('warn');
+  }
+}
+
+/* ---------- helpers ---------- */
+function uid(){
+  return (window.crypto && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : 'id-' + Date.now() + '-' + Math.random().toString(36).slice(2,8);
+}
+function esc(s){
+  return String(s).replace(/[&<>"']/g, function(m){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+  });
+}
+function hi(s){
+  var e = esc(s);
+  if(!q) return e;
+  var eq = esc(q).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  try{ return e.replace(new RegExp('(' + eq + ')', 'gi'), '<mark>$1</mark>'); }
+  catch(err){ return e; }
+}
+function fmt(ts){
+  return new Date(ts).toLocaleDateString(undefined,{month:'short',day:'numeric'}).toUpperCase();
+}
+function findEntry(id){
+  for(var i=0;i<data.entries.length;i++){ if(data.entries[i].id===id) return data.entries[i]; }
+  return null;
+}
+
+/* ---------- rendering ---------- */
+function visible(){
+  var qlc = q.toLowerCase();
+  return data.entries.filter(function(e){
+    if(filter !== 'all' && e.type !== filter) return false;
+    if(!qlc) return true;
+    var hay = (e.text + ' ' + (e.meta||'') + ' ' + (e.answer||'')).toLowerCase();
+    return hay.indexOf(qlc) !== -1;
+  }).sort(function(a,b){
+    if(!!b.pinned - !!a.pinned) return (!!b.pinned) - (!!a.pinned);
+    return (b.created||0) - (a.created||0);
+  });
+}
+
+function metaLine(e){
+  if(!e.meta) return '';
+  var pre = e.type==='quote' ? '— ' : e.type==='question' ? 'ask: ' : 're: ';
+  return '<p class="mline">' + pre + hi(e.meta) + '</p>';
+}
+
+function ansHTML(e){
+  if(e.answered){
+    return '<div class="ansbox"><span class="alabel">answered</span><p class="ansline">' + hi(e.answer) + '</p></div>';
+  }
+  if(answeringId === e.id){
+    return '<div class="ansform"><input id="ai" placeholder="what did they say?" autocomplete="off">'
+      + '<button class="act" data-act="anssave" data-id="' + e.id + '">file answer</button>'
+      + '<button class="act" data-act="anscancel">cancel</button></div>';
+  }
+  return '';
+}
+
+function editHTML(e){
+  var extra = '';
+  if(e.type === 'question'){
+    extra = '<input id="ea" placeholder="answer (leave blank if none yet)" value="' + esc(e.answer||'') + '" autocomplete="off">';
+  }
+  return '<div class="bod edit">'
+    + '<textarea id="et">' + esc(e.text) + '</textarea>'
+    + '<input id="em" placeholder="' + esc(TYPES[e.type].mph) + '" value="' + esc(e.meta||'') + '" autocomplete="off">'
+    + extra
+    + '<div class="erow"><button class="act" data-act="esave" data-id="' + e.id + '">save</button>'
+    + '<button class="act" data-act="ecancel">cancel</button></div>'
+    + '</div>';
+}
+
+function cardHTML(e){
+  var cls = 'card' + (e.pinned ? ' pinned' : '') + (e.id === newId ? ' new' : '');
+  var body;
+  if(e.id === editingId){
+    body = editHTML(e);
+  }else if(e.type === 'quote'){
+    body = '<div class="bod"><span class="qmark">“</span><p class="etext qtext">' + hi(e.text) + '</p>' + metaLine(e) + '</div>';
+  }else if(e.type === 'question'){
+    body = '<div class="bod"><p class="etext">' + hi(e.text) + '</p>' + metaLine(e) + ansHTML(e) + '</div>';
+  }else{
+    body = '<div class="bod"><p class="etext">' + hi(e.text) + '</p>' + metaLine(e) + '</div>';
+  }
+  var acts = '';
+  if(e.id !== editingId){
+    acts = '<div class="acts">'
+      + (e.type==='question' && !e.answered && answeringId!==e.id
+          ? '<button class="act" data-act="ans" data-id="' + e.id + '">answer</button>' : '')
+      + '<button class="act" data-act="pin" data-id="' + e.id + '">' + (e.pinned?'unpin':'pin') + '</button>'
+      + '<button class="act" data-act="edit" data-id="' + e.id + '">edit</button>'
+      + '<button class="act danger" data-act="del" data-id="' + e.id + '">toss</button>'
+      + '</div>';
+  }
+  return '<article class="' + cls + '" data-id="' + e.id + '">'
+    + '<div class="head"><span class="type-tag" data-t="' + e.type + '">' + e.type + '</span><time>' + fmt(e.created) + '</time></div>'
+    + body + acts + '</article>';
+}
+
+function emptyHTML(){
+  if(q){
+    return '<p class="e1">no cards match “' + esc(q) + '”</p><p class="e2">try fewer letters</p>';
+  }
+  if(filter==='quote') return '<p class="e1">no quotes filed yet</p><p class="e2">next time someone says something worth keeping — write it down exactly</p>';
+  if(filter==='question') return '<p class="e1">no questions filed</p><p class="e2">anything you didn’t want to ask out loud goes here. get the answer, file it.</p>';
+  if(filter==='note') return '<p class="e1">no notes yet</p><p class="e2">codes, names, how-tos, mistakes not to repeat. future-you says thanks.</p>';
+  return '<p class="e1">an empty box — for now</p><p class="e2">file your first card above</p>';
+}
+
+function counts(){
+  var c = {all:data.entries.length, quote:0, question:0, note:0};
+  data.entries.forEach(function(e){ if(c[e.type] !== undefined) c[e.type]++; });
+  $('#c-all').textContent = c.all;
+  $('#c-quote').textContent = c.quote;
+  $('#c-question').textContent = c.question;
+  $('#c-note').textContent = c.note;
+  $('#stats').textContent = c.all + (c.all===1 ? ' card filed' : ' cards filed');
+}
+
+function render(){
+  var list = visible();
+  grid.innerHTML = list.map(cardHTML).join('');
+  empty.hidden = list.length > 0;
+  if(!list.length) empty.innerHTML = emptyHTML();
+  counts();
+  if(answeringId){ var ai=$('#ai'); if(ai) ai.focus(); }
+  if(editingId){
+    var et=$('#et');
+    if(et){ et.focus(); et.selectionStart = et.selectionEnd = et.value.length; }
+  }
+}
+
+/* ---------- actions ---------- */
+function toast(msg, actLabel, fn){
+  if(toastTimer) clearTimeout(toastTimer);
+  toastEl.innerHTML = '<span>' + esc(msg) + '</span>' + (actLabel ? '<button class="tbtn">' + esc(actLabel) + '</button>' : '');
+  if(actLabel && fn){
+    toastEl.querySelector('.tbtn').addEventListener('click', function(){
+      toastEl.hidden = true;
+      fn();
+    });
+  }
+  toastEl.hidden = false;
+  toastTimer = setTimeout(function(){ toastEl.hidden = true; }, actLabel ? 6500 : 2400);
+}
+
+function add(){
+  var t = $('#text').value.trim();
+  if(!t){ toast('write something on the card first'); $('#text').focus(); return; }
+  var e = {
+    id:uid(), type:curType, text:t, meta:$('#meta').value.trim(),
+    answer:'', answered:false, pinned:false, created:Date.now()
+  };
+  data.entries.push(e);
+  newId = e.id;
+  save();
+  $('#text').value=''; $('#meta').value='';
+  if(filter !== 'all' && filter !== curType){ filter = curType; syncTabs(); }
+  render();
+  newId = null;
+  toast('filed under ' + TYPES[curType].plural);
+}
+
+function setType(t){
+  curType = t;
+  document.querySelectorAll('.segbtn').forEach(function(b){
+    b.classList.toggle('on', b.dataset.type === t);
+  });
+  $('#text').placeholder = TYPES[t].ph;
+  $('#meta').placeholder = TYPES[t].mph;
+}
+
+function syncTabs(){
+  document.querySelectorAll('.tab').forEach(function(b){
+    b.classList.toggle('on', b.dataset.f === filter);
+  });
+}
+
+function del(e){
+  var idx = data.entries.indexOf(e);
+  if(idx === -1) return;
+  data.entries.splice(idx,1);
+  if(data.tombstones.indexOf(e.id) === -1) data.tombstones.push(e.id);
+  lastDeleted = {entry:e, index:idx};
+  save(); render();
+  toast('card tossed', 'undo', function(){
+    if(!lastDeleted) return;
+    data.entries.splice(Math.min(lastDeleted.index, data.entries.length), 0, lastDeleted.entry);
+    data.tombstones = data.tombstones.filter(function(t){ return t !== lastDeleted.entry.id; });
+    lastDeleted = null;
+    save(); render();
+  });
+}
+
+function onGridClick(ev){
+  var btn = ev.target.closest('[data-act]');
+  if(!btn) return;
+  var act = btn.dataset.act;
+  var e = btn.dataset.id ? findEntry(btn.dataset.id) : null;
+
+  if(act === 'ans' && e){ answeringId = e.id; editingId = null; render(); }
+  else if(act === 'anssave' && e){
+    var v = $('#ai') ? $('#ai').value.trim() : '';
+    if(!v){ toast('write the answer first'); return; }
+    e.answer = v; e.answered = true; answeringId = null;
+    save(); render(); toast('answer filed');
+  }
+  else if(act === 'anscancel'){ answeringId = null; render(); }
+  else if(act === 'pin' && e){
+    e.pinned = !e.pinned;
+    save(); render();
+    toast(e.pinned ? 'pinned to the top' : 'unpinned');
+  }
+  else if(act === 'edit' && e){ editingId = e.id; answeringId = null; render(); }
+  else if(act === 'esave' && e){
+    var t = $('#et') ? $('#et').value.trim() : '';
+    if(!t){ toast('the card needs some words'); return; }
+    e.text = t;
+    e.meta = $('#em') ? $('#em').value.trim() : e.meta;
+    if(e.type === 'question' && $('#ea')){
+      var a = $('#ea').value.trim();
+      e.answer = a; e.answered = !!a;
+    }
+    editingId = null;
+    save(); render(); toast('card updated');
+  }
+  else if(act === 'ecancel'){ editingId = null; render(); }
+  else if(act === 'del' && e){ del(e); }
+}
+
+/* ---------- pull a card ---------- */
+function pull(){
+  if(!data.entries.length){ toast('the box is empty — file a card first'); return; }
+  var e;
+  do{
+    e = data.entries[Math.floor(Math.random() * data.entries.length)];
+  }while(data.entries.length > 1 && e.id === lastPull);
+  lastPull = e.id;
+  renderPull(e);
+  back.hidden = false;
+}
+
+function renderPull(e){
+  var ptag = $('#ptag');
+  ptag.dataset.t = e.type;
+  ptag.textContent = e.type;
+  $('#pdate').textContent = fmt(e.created);
+  var h = '';
+  if(e.type === 'quote'){
+    h = '<span class="qmark big">“</span><p class="ptext pq">' + esc(e.text) + '</p>';
+    if(e.meta) h += '<p class="mline">— ' + esc(e.meta) + '</p>';
+  }else if(e.type === 'question'){
+    h = '<p class="ptext">' + esc(e.text) + '</p>';
+    if(e.meta) h += '<p class="mline">ask: ' + esc(e.meta) + '</p>';
+    if(e.answered){
+      h += '<button class="reveal" id="rev">reveal the answer</button>'
+        + '<div class="ansbox" id="ra" hidden><span class="alabel">answered</span><p class="ansline">' + esc(e.answer) + '</p></div>';
+    }else{
+      h += '<p class="mline">(no answer filed yet — go ask.)</p>';
+    }
+  }else{
+    h = '<p class="ptext">' + esc(e.text) + '</p>';
+    if(e.meta) h += '<p class="mline">re: ' + esc(e.meta) + '</p>';
+  }
+  $('#pbody').innerHTML = h;
+  var rev = $('#rev');
+  if(rev){
+    rev.addEventListener('click', function(){
+      rev.hidden = true;
+      $('#ra').hidden = false;
+    });
+  }
+}
+
+/* ---------- export / import ---------- */
+function doExport(){
+  var payload = {
+    app:'summer-job-journal',
+    exported:new Date().toISOString(),
+    entries:data.entries
+  };
+  var blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'summer-job-journal-backup.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+  toast('exported ' + data.entries.length + ' cards');
+}
+
+function doImport(file){
+  var r = new FileReader();
+  r.onload = function(){
+    var n = 0;
+    try{
+      var j = JSON.parse(r.result);
+      var arr = Array.isArray(j) ? j : (j && Array.isArray(j.entries) ? j.entries : null);
+      if(!arr) throw new Error('bad file');
+      arr.forEach(function(it){
+        if(!it || typeof it.text !== 'string' || !it.text.trim()) return;
+        var id = (typeof it.id === 'string' && it.id) ? it.id : uid();
+        if(data.entries.some(function(x){ return x.id === id; })) return;
+        data.entries.push({
+          id:id,
+          type:(it.type==='quote'||it.type==='question'||it.type==='note') ? it.type : 'note',
+          text:String(it.text),
+          meta:typeof it.meta==='string' ? it.meta : '',
+          answer:typeof it.answer==='string' ? it.answer : '',
+          answered:!!it.answered,
+          pinned:!!it.pinned,
+          created:typeof it.created==='number' ? it.created : Date.now()
+        });
+        data.tombstones = data.tombstones.filter(function(t){ return t !== id; });
+        n++;
+      });
+      save(); render();
+      toast(n ? 'restored ' + n + (n===1?' card':' cards') : 'nothing new in that file');
+    }catch(err){
+      toast('couldn’t read that file — use an export from this journal');
+    }
+  };
+  r.readAsText(file);
+}
+
+/* ---------- init ---------- */
+function init(){
+  grid = $('#grid'); empty = $('#empty'); back = $('#back'); toastEl = $('#toast');
+
+  load();
+  updateSaveState();
+
+  $('#today').textContent = new Date()
+    .toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'})
+    .toLowerCase();
+
+  document.querySelectorAll('.segbtn').forEach(function(b){
+    b.addEventListener('click', function(){ setType(b.dataset.type); $('#text').focus(); });
+  });
+  document.querySelectorAll('.tab').forEach(function(b){
+    b.addEventListener('click', function(){ filter = b.dataset.f; syncTabs(); render(); });
+  });
+
+  $('#file').addEventListener('click', add);
+  $('#text').addEventListener('keydown', function(ev){
+    if((ev.metaKey || ev.ctrlKey) && ev.key === 'Enter') add();
+  });
+  $('#meta').addEventListener('keydown', function(ev){
+    if(ev.key === 'Enter') add();
+  });
+
+  $('#search').addEventListener('input', function(){
+    q = this.value.trim();
+    render();
+  });
+
+  grid.addEventListener('click', onGridClick);
+  grid.addEventListener('keydown', function(ev){
+    if(ev.key === 'Enter' && ev.target.id === 'ai'){
+      ev.preventDefault();
+      var b = grid.querySelector('[data-act="anssave"]');
+      if(b) b.click();
+    }
+    if((ev.metaKey || ev.ctrlKey) && ev.key === 'Enter' && ev.target.id === 'et'){
+      var s = grid.querySelector('[data-act="esave"]');
+      if(s) s.click();
+    }
+  });
+
+  $('#pull').addEventListener('click', pull);
+  $('#again').addEventListener('click', pull);
+  $('#pclose').addEventListener('click', function(){ back.hidden = true; });
+  back.addEventListener('click', function(ev){ if(ev.target === back) back.hidden = true; });
+
+  $('#exp').addEventListener('click', doExport);
+  $('#impbtn').addEventListener('click', function(){ $('#impfile').click(); });
+  $('#impfile').addEventListener('change', function(){
+    if(this.files && this.files[0]) doImport(this.files[0]);
+    this.value = '';
+  });
+
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape' && !back.hidden){ back.hidden = true; return; }
+    var tag = document.activeElement ? document.activeElement.tagName : '';
+    if(ev.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA' && back.hidden){
+      ev.preventDefault();
+      $('#search').focus();
+    }
+  });
+
+  render();
+}
+
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  navigator.serviceWorker.register('sw.js').catch(function(){});
+}
+
+init();
+})();
+</script>
+
+</body>
+</html>

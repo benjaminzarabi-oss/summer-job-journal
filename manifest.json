@@ -1,0 +1,14 @@
+{
+  "name": "Benjamin's Field Journal",
+  "short_name": "Field Journal",
+  "description": "Quotes, questions, and notes worth keeping.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#d3c5a4",
+  "theme_color": "#d3c5a4",
+  "icons": [
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
