@@ -585,7 +585,19 @@ var SEED = [
     id:'seed-question', type:'question', pinned:false,
     text:'What did I learn today that I didn’t know this morning?',
     meta:'ask yourself after every shift'
-  }
+  },
+  /* batch filed 2026-07-15 from Benjamin's notes */
+  { id:'seed-b1-01', type:'quote', ago:0,  text:'Loose lips sink ships.' },
+  { id:'seed-b1-02', type:'note',  ago:1,  text:'Create your opportunity — treat it like a door: don’t wait for it to come to you, make it happen.' },
+  { id:'seed-b1-03', type:'note',  ago:2,  text:'Implied value vs. real value.' },
+  { id:'seed-b1-04', type:'note',  ago:3,  text:'Always know the value you add to anyone’s life.' },
+  { id:'seed-b1-05', type:'note',  ago:4,  text:'ORGANIZED FOCUS.' },
+  { id:'seed-b1-06', type:'note',  ago:5,  text:'What has to be done today, do it today — don’t leave it for tomorrow.' },
+  { id:'seed-b1-07', type:'note',  ago:6,  text:'Everything in life has to do with your ability to prioritize.' },
+  { id:'seed-b1-08', type:'note',  ago:7,  text:'Know your strengths — play to your advantages.' },
+  { id:'seed-b1-09', type:'quote', ago:8,  text:'KNOW THY SELF.' },
+  { id:'seed-b1-10', type:'quote', ago:9,  text:'Be curious, not judgemental.' },
+  { id:'seed-b1-11', type:'note',  ago:10, text:'HOW, FOCUS, MUST.' }
 ];
 
 var data = { entries:[], tombstones:[] };
@@ -609,13 +621,14 @@ function load(){
     }
   }catch(err){ storageOK = false; }
   var changed = false;
+  var now = Date.now();
   SEED.forEach(function(s){
     var buried = data.tombstones.indexOf(s.id) !== -1;
     var exists = data.entries.some(function(e){ return e.id === s.id; });
     if(!buried && !exists){
       data.entries.push({
         id:s.id, type:s.type, text:s.text, meta:s.meta||'',
-        answer:'', answered:false, pinned:!!s.pinned, created:Date.now()
+        answer:'', answered:false, pinned:!!s.pinned, created:now - (s.ago||0)*1000
       });
       changed = true;
     }
