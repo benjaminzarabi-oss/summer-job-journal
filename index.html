@@ -35,6 +35,10 @@
   --tw:"American Typewriter","Courier Prime","Courier New",Courier,monospace;
   --body:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
   --marker:"Marker Felt","Bradley Hand","Segoe Print","Comic Sans MS",cursive;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --grain-op:.22;
+  --ring:rgba(120,80,40,.10);
+  --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='7'%3E%3Cpath d='M0 3.5 Q 5 .5 10 3.5 T 20 3.5' fill='none' stroke='%232a271f' stroke-opacity='.4' stroke-width='1.2'/%3E%3C/svg%3E");
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -52,6 +56,9 @@
     --tape:rgba(74,68,51,.97);
     --shadow-s:0 1px 2px rgba(0,0,0,.4),0 5px 14px rgba(0,0,0,.28);
     --shadow-l:0 3px 6px rgba(0,0,0,.45),0 12px 26px rgba(0,0,0,.35);
+    --grain-op:.14;
+    --ring:rgba(210,170,120,.06);
+    --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='7'%3E%3Cpath d='M0 3.5 Q 5 .5 10 3.5 T 20 3.5' fill='none' stroke='%23ebe5d4' stroke-opacity='.35' stroke-width='1.2'/%3E%3C/svg%3E");
   }
 }
 :root[data-theme="light"]{
@@ -69,6 +76,9 @@
   --tape:rgba(246,233,189,.95);
   --shadow-s:0 1px 2px rgba(60,45,20,.14),0 5px 14px rgba(60,45,20,.08);
   --shadow-l:0 3px 6px rgba(60,45,20,.15),0 12px 26px rgba(60,45,20,.12);
+  --grain-op:.22;
+  --ring:rgba(120,80,40,.10);
+  --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='7'%3E%3Cpath d='M0 3.5 Q 5 .5 10 3.5 T 20 3.5' fill='none' stroke='%232a271f' stroke-opacity='.4' stroke-width='1.2'/%3E%3C/svg%3E");
 }
 :root[data-theme="dark"]{
   --desk:#1f1e19;
@@ -85,6 +95,9 @@
   --tape:rgba(74,68,51,.97);
   --shadow-s:0 1px 2px rgba(0,0,0,.4),0 5px 14px rgba(0,0,0,.28);
   --shadow-l:0 3px 6px rgba(0,0,0,.45),0 12px 26px rgba(0,0,0,.35);
+  --grain-op:.14;
+  --ring:rgba(210,170,120,.06);
+  --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='7'%3E%3Cpath d='M0 3.5 Q 5 .5 10 3.5 T 20 3.5' fill='none' stroke='%23ebe5d4' stroke-opacity='.35' stroke-width='1.2'/%3E%3C/svg%3E");
 }
 
 /* ============ base ============ */
@@ -94,26 +107,54 @@ body{
   margin:0;
   font-family:var(--body);
   color:var(--ink);
-  background:radial-gradient(1100px 520px at 50% -140px,var(--lamp),transparent 70%),var(--desk);
+  background:radial-gradient(1100px 520px at 50% -140px,var(--lamp),transparent 70%),radial-gradient(900px 500px at 85% 115%,var(--lamp),transparent 75%),var(--desk);
   min-height:100vh;
   -webkit-font-smoothing:antialiased;
 }
+body::before{ /* paper grain over everything */
+  content:"";position:fixed;inset:0;z-index:999;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  opacity:var(--grain-op);mix-blend-mode:multiply;
+}
 button{font:inherit;color:inherit}
 ::selection{background:#ffe36e;color:#241f10}
-mark{background:var(--hl-q-bg);color:inherit;padding:0 1px;border-radius:2px}
+mark{background:var(--hl-q-bg);color:inherit;padding:0 2px;border-radius:5px 2px 6px 3px/3px 6px 2px 5px}
 :focus-visible{outline:2px dashed var(--red-ink);outline-offset:2px}
-.wrap{max-width:1060px;margin:0 auto;padding:30px 22px 70px}
+.wrap{max-width:1060px;margin:0 auto;padding:30px 22px 70px;position:relative}
+.wrap::after{ /* old coffee ring on the desk */
+  content:"";position:absolute;z-index:-1;right:5%;bottom:140px;
+  width:112px;height:108px;border-radius:50%;
+  border:9px solid var(--ring);
+  transform:rotate(-8deg) scaleX(1.04);
+}
 
 /* ============ header ============ */
-header{margin:6px 0 26px}
+header{margin:6px 0 26px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 18px}
 .tape{
   display:inline-block;
   background:var(--tape);
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 5px,transparent 5px 11px);
   padding:11px 28px 12px;
   transform:rotate(-1.1deg);
   box-shadow:0 3px 10px rgba(0,0,0,.16);
   clip-path:polygon(1.5% 0,98% 3%,100% 12%,99% 88%,100% 97%,97.5% 100%,2% 97%,0 90%,.5% 10%);
 }
+.tally{margin-left:auto;text-align:right;padding-bottom:4px}
+.tlabel{
+  display:block;margin-bottom:7px;
+  font-family:var(--tw);font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);
+}
+.tg{
+  position:relative;display:inline-block;height:17px;margin-left:8px;vertical-align:middle;
+  width:calc(var(--n)*8px - 6px);
+  background-image:repeating-linear-gradient(90deg,var(--muted) 0 2px,transparent 2px 8px);
+}
+.tg.full::after{
+  content:"";position:absolute;left:-4px;top:7px;width:34px;height:2px;
+  background:var(--red-ink);transform:rotate(-22deg);
+}
+.tmore{font-family:var(--tw);font-size:11px;color:var(--muted);margin-left:6px}
 h1{
   margin:0;
   font-family:var(--tw);
@@ -124,11 +165,16 @@ h1{
   text-transform:uppercase;
 }
 .sub{
-  margin:13px 2px 0;
+  flex-basis:100%;
+  margin:10px 2px 0;
   font-family:var(--tw);
   font-size:12px;
   letter-spacing:.09em;
   color:var(--muted);
+}
+header::after{ /* pencil squiggle divider */
+  content:"";flex-basis:100%;height:7px;margin-top:14px;
+  background:var(--wave) repeat-x left center;
 }
 
 /* ============ composer ============ */
@@ -156,8 +202,8 @@ h1{
 .segbtn::before{
   content:"";
   position:absolute;inset:3px -2px 3px -4px;
-  transform:skewX(-9deg) rotate(-1.2deg);
-  border-radius:2px;z-index:-1;
+  transform:skewX(-9deg) rotate(-1.4deg);
+  border-radius:7px 3px 8px 4px/4px 8px 3px 7px;z-index:-1;
   opacity:0;transition:opacity .15s;
 }
 .segbtn[data-type="quote"]::before{background:var(--hl-q-bg)}
@@ -191,9 +237,10 @@ h1{
   cursor:pointer;
   font-family:var(--tw);font-weight:700;font-size:11px;
   letter-spacing:.15em;text-transform:uppercase;
-  border:1.5px solid color-mix(in srgb,var(--ink) 60%,transparent);
+  border:2px solid color-mix(in srgb,var(--ink) 60%,transparent);
   background:transparent;color:var(--ink);
-  padding:9px 14px;border-radius:3px;
+  padding:9px 14px;
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
   transition:transform .12s,box-shadow .12s,background .12s,color .12s;
 }
 .btn:hover{transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,.18)}
@@ -266,9 +313,19 @@ h1{
   display:flex;flex-direction:column;
   transition:transform .16s,box-shadow .16s;
 }
-.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-l)}
-.card.pinned{transform:rotate(-.5deg)}
-.card.pinned:hover{transform:rotate(-.5deg) translateY(-2px)}
+.card:nth-child(3n){transform:rotate(.35deg)}
+.card:nth-child(3n+1){transform:rotate(-.3deg)}
+.card:hover{transform:translateY(-2px) rotate(0deg);box-shadow:var(--shadow-l)}
+.card.pinned{transform:rotate(-.6deg)}
+.card.pinned:hover{transform:rotate(-.6deg) translateY(-2px)}
+.deal .card{animation:drop .38s cubic-bezier(.2,.8,.3,1.15) both}
+.deal .card:nth-child(2){animation-delay:.04s}
+.deal .card:nth-child(3){animation-delay:.08s}
+.deal .card:nth-child(4){animation-delay:.12s}
+.deal .card:nth-child(5){animation-delay:.16s}
+.deal .card:nth-child(6){animation-delay:.2s}
+.deal .card:nth-child(7){animation-delay:.24s}
+.deal .card:nth-child(n+8){animation-delay:.28s}
 .card.pinned::after{ /* masking tape holding it up */
   content:"";
   position:absolute;top:-8px;left:50%;width:74px;height:18px;
@@ -294,8 +351,8 @@ h1{
 .type-tag::before{
   content:"";
   position:absolute;inset:-1px -4px -2px -5px;
-  transform:skewX(-9deg) rotate(-1deg);
-  border-radius:2px;z-index:-1;
+  transform:skewX(-9deg) rotate(-1.2deg);
+  border-radius:6px 3px 7px 3px/3px 7px 3px 6px;z-index:-1;
 }
 .type-tag[data-t="quote"]::before{background:var(--hl-q-bg)}
 .type-tag[data-t="question"]::before{background:var(--hl-u-bg)}
@@ -305,14 +362,17 @@ h1{
   font-family:var(--tw);font-size:10px;letter-spacing:.1em;
   color:var(--muted);
 }
-.bod{padding:11px 14px 4px}
-.etext{margin:0;font-size:15px;line-height:1.55;white-space:pre-wrap;overflow-wrap:break-word}
-.qtext{font-size:16.5px;font-style:italic}
+.bod{
+  padding:10px 14px 4px;
+  background-image:repeating-linear-gradient(to bottom,transparent,transparent 23px,color-mix(in srgb,var(--ruling) 55%,transparent) 23px,color-mix(in srgb,var(--ruling) 55%,transparent) 24px);
+}
+.etext{margin:0;font-size:15px;line-height:24px;white-space:pre-wrap;overflow-wrap:break-word}
+.qtext{font-family:var(--serif);font-size:17px;font-style:italic}
 .qmark{
   float:left;
-  font-family:var(--tw);font-size:44px;line-height:.7;
+  font-family:var(--serif);font-size:46px;line-height:.7;
   color:var(--hl-q-ink);
-  margin:5px 8px 0 0;user-select:none;
+  margin:6px 8px 0 0;user-select:none;
 }
 .mline{
   margin:9px 0 0;
@@ -330,6 +390,15 @@ h1{
   color:var(--hl-u-ink);
 }
 .ansline{margin:4px 0 0;font-family:var(--marker);font-size:15px;overflow-wrap:break-word}
+.stamp{
+  position:absolute;top:36px;right:10px;z-index:1;
+  transform:rotate(7deg);
+  border:2px solid var(--red-ink);color:var(--red-ink);
+  border-radius:4px 6px 5px 7px;
+  padding:2px 6px;opacity:.5;
+  font-family:var(--tw);font-weight:700;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;
+  pointer-events:none;
+}
 .ansform{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
 .ansform input{
   flex:1;min-width:120px;
@@ -378,8 +447,8 @@ h1{
 /* ============ empty state ============ */
 #empty{
   margin-top:18px;
-  border:2px dashed color-mix(in srgb,var(--ink) 28%,transparent);
-  border-radius:6px;
+  border:2px dashed color-mix(in srgb,var(--ink) 30%,transparent);
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
   padding:40px 24px;text-align:center;
 }
 .e1{margin:0;font-family:var(--marker);font-size:18px;color:var(--ink)}
@@ -462,7 +531,7 @@ footer .sp{flex:1}
   background-image:repeating-linear-gradient(to bottom,transparent,transparent 25px,var(--ruling) 25px,var(--ruling) 26px);
 }
 .ptext{margin:0;font-size:19px;line-height:26px;white-space:pre-wrap;overflow-wrap:break-word}
-.pq{font-style:italic}
+.pq{font-family:var(--serif);font-style:italic}
 .qmark.big{font-size:54px;margin-top:8px}
 .pbody .mline{line-height:26px;margin:0}
 .pbody .ansline{line-height:26px}
@@ -470,9 +539,10 @@ footer .sp{flex:1}
   margin:14px 0 6px;cursor:pointer;
   font-family:var(--tw);font-weight:700;font-size:10.5px;
   letter-spacing:.16em;text-transform:uppercase;
-  border:1.5px dashed var(--hl-u-ink);color:var(--hl-u-ink);
+  border:2px dashed var(--hl-u-ink);color:var(--hl-u-ink);
   background:var(--card);
-  padding:8px 12px;border-radius:3px;
+  padding:8px 12px;
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
 }
 .reveal:hover{background:var(--hl-u-bg);color:var(--ink)}
 .pacts{display:flex;gap:10px;justify-content:flex-end;padding:16px 20px 0}
@@ -498,6 +568,7 @@ footer .sp{flex:1}
 <div class="wrap">
   <header>
     <div class="tape"><h1>Benjamin&rsquo;s Field Journal</h1></div>
+    <div class="tally" aria-hidden="true"><span class="tlabel">cards filed</span><span id="tally"></span></div>
     <p class="sub">summer job — quotes, questions &amp; notes worth keeping &middot; <span id="today"></span></p>
   </header>
 
@@ -749,7 +820,9 @@ function cardHTML(e){
       + '<button class="act danger" data-act="del" data-id="' + e.id + '">toss</button>'
       + '</div>';
   }
-  return '<article class="' + cls + '" data-id="' + e.id + '">'
+  var stamp = (e.type === 'question' && e.answered && e.id !== editingId)
+    ? '<span class="stamp">answered</span>' : '';
+  return '<article class="' + cls + '" data-id="' + e.id + '">' + stamp
     + '<div class="head"><span class="type-tag" data-t="' + e.type + '">' + e.type + '</span><time>' + fmt(e.created) + '</time></div>'
     + body + acts + '</article>';
 }
@@ -772,11 +845,28 @@ function counts(){
   $('#c-question').textContent = c.question;
   $('#c-note').textContent = c.note;
   $('#stats').textContent = c.all + (c.all===1 ? ' card filed' : ' cards filed');
+  renderTally(c.all);
 }
 
+function renderTally(n){
+  var el = $('#tally');
+  if(!el) return;
+  var full = Math.floor(n/5), rem = n%5, cap = 8, h = '';
+  for(var i=0; i<Math.min(full,cap); i++) h += '<span class="tg full" style="--n:4"></span>';
+  if(full <= cap && rem) h += '<span class="tg" style="--n:' + rem + '"></span>';
+  if(full > cap) h += '<span class="tmore">+' + (n - cap*5) + '</span>';
+  el.innerHTML = h || '<span class="tmore">&mdash;</span>';
+}
+
+var dealt = false;
 function render(){
   var list = visible();
   grid.innerHTML = list.map(cardHTML).join('');
+  if(!dealt){
+    dealt = true;
+    grid.classList.add('deal');
+    setTimeout(function(){ grid.classList.remove('deal'); }, 900);
+  }
   empty.hidden = list.length > 0;
   if(!list.length) empty.innerHTML = emptyHTML();
   counts();
