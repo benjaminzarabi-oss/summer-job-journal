@@ -644,18 +644,18 @@ var TYPES = {
 var SEED = [
   /* only Benjamin's own words go in the box — batch filed 2026-07-15 */
   { id:'seed-b1-01', type:'quote', ago:0,  text:'Loose lips sink ships.' },
-  { id:'seed-b1-02', type:'note',  ago:1,  text:'Create your opportunity — treat it as if it’s a door: don’t wait for it to come to you, make it happen.' },
-  { id:'seed-b1-03', type:'note',  ago:2,  text:'Implied vs. real value.' },
-  { id:'seed-b1-04', type:'note',  ago:3,  text:'Always know the value you add to anyone’s life.' },
+  { id:'seed-b1-02', type:'note',  ago:1,  text:'Create your opportunity — treat it like a door. Don’t wait for it to come to you; make it happen.' },
+  { id:'seed-b1-03', type:'note',  ago:2,  text:'Implied value vs. real value — know the difference.' },
+  { id:'seed-b1-04', type:'note',  ago:3,  text:'Always know the value you add to other people’s lives.' },
   { id:'seed-b1-05', type:'note',  ago:4,  text:'ORGANIZED FOCUS.' },
-  { id:'seed-b1-06', type:'note',  ago:5,  text:'What has to be done today, do it today — don’t leave it for tomorrow.' },
-  { id:'seed-b1-07', type:'note',  ago:6,  text:'Everything in life has to do with your ability to prioritize.' },
-  { id:'seed-b1-08', type:'note',  ago:7,  text:'Know your strengths — play at your advantages.' },
-  { id:'seed-b1-09', type:'quote', ago:8,  text:'KNOW THY SELF.' },
-  { id:'seed-b1-10', type:'quote', ago:9,  text:'Be curious, not judgemental.' },
-  { id:'seed-b1-11', type:'note',  ago:10, text:'HOW, FOCUS, MUST.' },
+  { id:'seed-b1-06', type:'note',  ago:5,  text:'Whatever has to be done today, do it today — don’t leave it for tomorrow.' },
+  { id:'seed-b1-07', type:'note',  ago:6,  text:'Everything in life comes down to your ability to prioritize.' },
+  { id:'seed-b1-08', type:'note',  ago:7,  text:'Know your strengths — play to your advantages.' },
+  { id:'seed-b1-09', type:'quote', ago:8,  text:'KNOW THYSELF.' },
+  { id:'seed-b1-10', type:'quote', ago:9,  text:'Be curious, not judgmental.' },
+  { id:'seed-b1-11', type:'note',  ago:10, text:'HOW. FOCUS. MUST.' },
   /* batch filed 2026-07-16 */
-  { id:'seed-b2-01', type:'note',  ago:0,  text:'The 2 most important decisions in your life: who you marry, and choosing between education vs. work.' }
+  { id:'seed-b2-01', type:'note',  ago:0,  text:'The two most important decisions in your life: who you marry, and whether you choose education or work.' }
 ];
 
 var data = { entries:[], tombstones:[] };
@@ -679,9 +679,10 @@ function load(){
     }
   }catch(err){ storageOK = false; }
   var changed = false;
-  // Benjamin's rule: only his own words in the box. Purge the starter cards
-  // Claude invented, and restore his exact phrasing where it was smoothed —
-  // but only on cards he hasn't rewritten himself.
+  // Benjamin's rules: no cards he didn't say (PURGE deletes the starter cards
+  // Claude invented), and his cards should read grammatically (FIX upgrades any
+  // earlier-seeded text to the corrected version — but never touches a card
+  // he has rewritten himself).
   var PURGE = ['seed-welcome','seed-quote','seed-question'];
   var before = data.entries.length;
   data.entries = data.entries.filter(function(e){ return PURGE.indexOf(e.id) === -1; });
@@ -690,14 +691,28 @@ function load(){
     if(data.tombstones.indexOf(id) === -1){ data.tombstones.push(id); changed = true; }
   });
   var FIX = {
-    'seed-b1-02': ['Create your opportunity — treat it like a door: don’t wait for it to come to you, make it happen.',
-                   'Create your opportunity — treat it as if it’s a door: don’t wait for it to come to you, make it happen.'],
-    'seed-b1-03': ['Implied value vs. real value.', 'Implied vs. real value.'],
-    'seed-b1-08': ['Know your strengths — play to your advantages.', 'Know your strengths — play at your advantages.']
+    'seed-b1-02': { olds:['Create your opportunity — treat it like a door: don’t wait for it to come to you, make it happen.',
+                          'Create your opportunity — treat it as if it’s a door: don’t wait for it to come to you, make it happen.'],
+                    nu:'Create your opportunity — treat it like a door. Don’t wait for it to come to you; make it happen.' },
+    'seed-b1-03': { olds:['Implied value vs. real value.','Implied vs. real value.'],
+                    nu:'Implied value vs. real value — know the difference.' },
+    'seed-b1-04': { olds:['Always know the value you add to anyone’s life.'],
+                    nu:'Always know the value you add to other people’s lives.' },
+    'seed-b1-06': { olds:['What has to be done today, do it today — don’t leave it for tomorrow.'],
+                    nu:'Whatever has to be done today, do it today — don’t leave it for tomorrow.' },
+    'seed-b1-07': { olds:['Everything in life has to do with your ability to prioritize.'],
+                    nu:'Everything in life comes down to your ability to prioritize.' },
+    'seed-b1-08': { olds:['Know your strengths — play at your advantages.'],
+                    nu:'Know your strengths — play to your advantages.' },
+    'seed-b1-09': { olds:['KNOW THY SELF.'], nu:'KNOW THYSELF.' },
+    'seed-b1-10': { olds:['Be curious, not judgemental.'], nu:'Be curious, not judgmental.' },
+    'seed-b1-11': { olds:['HOW, FOCUS, MUST.'], nu:'HOW. FOCUS. MUST.' },
+    'seed-b2-01': { olds:['The 2 most important decisions in your life: who you marry, and choosing between education vs. work.'],
+                    nu:'The two most important decisions in your life: who you marry, and whether you choose education or work.' }
   };
   data.entries.forEach(function(e){
     var f = FIX[e.id];
-    if(f && e.text === f[0]){ e.text = f[1]; changed = true; }
+    if(f && f.olds.indexOf(e.text) !== -1 && e.text !== f.nu){ e.text = f.nu; changed = true; }
   });
   var now = Date.now();
   SEED.forEach(function(s){
